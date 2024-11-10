@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Feedback Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+    <div id="quiz-container" class="bg-white p-8 max-w-lg mx-auto rounded-lg shadow-md">
+        <h1 class="text-3xl font-bold text-center text-blue-500 mb-8">Customer Feedback Form</h1>
+
+        <!-- Current question will be injected here -->
+        <div id="question-container" class="space-y-6"></div>
+
+        <!-- Navigation buttons -->
+        <div class="text-center mt-4">
+            <button id="next-button" class="mt-4 bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-200" disabled>Next</button>
+        </div>
+
+        <!-- Final feedback and result message -->
+        <div id="final-feedback" class="mt-4 text-center font-semibold hidden">
+            <h2 class="text-2xl mb-4">Thank you for your feedback!</h2>
+            <textarea id="final-feedback-text" class="w-full p-4 border rounded-lg mb-4" rows="4" placeholder="Please provide any additional comments or feedback here..."></textarea>
+            <button id="submit-feedback" class="bg-blue-500 text-white py-2 px-6 rounded hover:bg-blue-600 transition duration-200">Submit Feedback</button>
+        </div>
+
+        <div id="thank-you-message" class="mt-4 text-center font-semibold hidden">
+            <h2 class="text-2xl">Thank you for completing the feedback form!</h2>
+            <p>You can now close this page.</p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

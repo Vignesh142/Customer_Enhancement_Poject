@@ -1,0 +1,80 @@
+[
+  {
+      "question": "What is the gcloud command to set default zone for compute engine server using gcloud cli?",
+      "choices": [
+          "A. gcloud config set compute/zone us-east-1",
+          "B. gcloud config configurations set compute/zone us-east-1a",
+          "C. gcloud config set compute/zone us-east1-a",
+          "D. gcloud defaults set compute/zone us-east-1"
+      ],
+      "answer": {
+          "correct": "C. gcloud config set compute/zone us-east1-a",
+          "explanation": "The gcloud command to set the default zone for compute engine is gcloud config set compute/zone us-east1-a. Hence, C is the correct answer."
+      }
+  },
+  {
+      "question": "As a cloud engineer, you have been asked to upgrade the free trial of your account and rename it to a production-inventory system. You are getting permission denied error while making the changes. Which of the following permissions will solve the problem?",
+      "choices": [
+          "A. Billing.accounts.update",
+          "B. Billing.account.upgrade",
+          "C. Billing.account.update",
+          "D. Billing.accounts.upgrade"
+      ],
+      "answer": {
+          "correct": "A. Billing.accounts.update",
+          "explanation": "The required permission is billing.accounts.update on the Billing Account resource. Hence, A is correct."
+      }
+  },
+  {
+      "question": "Which of the following role provides granular access for a specific service and is managed by GCP?",
+      "choices": [
+          "A. Custom",
+          "B. Predefined",
+          "C. Admin",
+          "D. Primitive"
+      ],
+      "answer": {
+          "correct": "B. Predefined",
+          "explanation": "Predefined roles are managed by GCP and provide service-specific access. Custom roles are user-managed, while Admin and Primitive roles are not valid types in this context."
+      }
+  },
+  {
+      "question": "Your company has 5 TB of testing data stored in the production database of a testing tool named Quality Center. The data is being used to create a real-time analytics system which is causing slow response to the testers while using the tool. What should you do to improve the load on the database?",
+      "choices": [
+          "A. Set up Multi-AZ",
+          "B. Set up a read replica",
+          "C. Scale the database instance",
+          "D. Run the analytics query only on weekends"
+      ],
+      "answer": {
+          "correct": "B. Set up a read replica",
+          "explanation": "Read replicas can be used to run all the queries related to the analytics system, offloading the main database."
+      }
+  },
+  {
+      "question": "You have been asked to list the name of the active account using gcloud CLI. Which of the following commands will you use?",
+      "choices": [
+          "A. gcloud config list",
+          "B. gcloud auth list",
+          "C. gcloud account list",
+          "D. gcloud project list"
+      ],
+      "answer": {
+          "correct": "B. gcloud auth list",
+          "explanation": "To list the active account name, we use gcloud auth list. The other options do not provide the active account name."
+      }
+  },
+  {
+      "question": "What does the CIDR 10.0.2.0/26 correspond to?",
+      "choices": [
+          "A. 10.0.2.0 – 10.0.2.26",
+          "B. 10.0.2.0 – 10.0.2.63",
+          "C. 10.0.0.0 – 10.0.63.0",
+          "D. 10.0.2.0 – 10.0.0.26"
+      ],
+      "answer": {
+          "correct": "B. 10.0.2.0 – 10.0.2.63",
+          "explanation": "/26 means 64 IPs (=2^(32-26) = 2^6), meaning only the last digit can change, resulting in the range 10.0.2.0 to 10.0.2.63."
+      }
+  }
+]

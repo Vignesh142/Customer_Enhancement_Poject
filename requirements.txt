@@ -1,0 +1,16 @@
+groq
+pandas
+sentence-transformers
+faiss-cpu
+langchain-community
+InstructorEmbedding
+flask
+gradio
+requests
+wordcloud
+vaderSentiment  
+textblob
+nltk
+json
+csv
+uuid
