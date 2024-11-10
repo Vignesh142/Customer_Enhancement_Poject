@@ -26,6 +26,15 @@ This project helps businesses automate feedback management, gain actionable insi
 git clone https://github.com/Vignesh142/Customer_Enhancement_Poject.git
 ```
 
+# Create Virtual Environment
+```bash
+python -m venv env
+```
+# Activate the Virtual Environment
+```bash
+.\venv\Scripts\activate
+```
+
 ## Install the dependencies
 ```bash
 cd Customer_Enhancement_Poject
