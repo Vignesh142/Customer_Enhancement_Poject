@@ -127,9 +127,12 @@ def save_feedback():
     data = request.get_json()
     responses = data.get('responses', [])
     final_feedback = data.get('finalFeedback', '')
-
-    # Prepare data to be saved
-    feedback_data = [{'question': f'Question {i + 1}', 'answer': response} for i, response in enumerate(responses)]
+    questions_path = os.path.join('data', 'questions.json')
+    with open(questions_path, 'r', encoding='utf-8') as file:
+        questions = json.load(file)
+        
+    # Prepare data to be saved with questions as indexes
+    feedback_data = [{'question': questions[i]["question"], 'answer': response} for i, response in enumerate(responses) if i < len(questions)]
     feedback_data.append({'question': 'Final Feedback', 'answer': final_feedback})
 
     # Define the path to the CSV file
@@ -143,7 +146,7 @@ def save_feedback():
             writer = csv.writer(csvfile, quoting=csv.QUOTE_ALL)
 
             # Write header if file doesn't exist
-            if not file_exists:
+            if not file_exists or os.stat(file_path).st_size == 0:
                 headers = [item['question'] for item in feedback_data]
                 writer.writerow(headers)
 

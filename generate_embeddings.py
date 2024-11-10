@@ -1,6 +1,6 @@
 # generate_faiss_index.py
 import pandas as pd
-from faiss_utils import generate_embeddings, create_faiss_index, save_faiss_index, save_faq_data
+from utils.faiss_utils import generate_embeddings, create_faiss_index, save_faiss_index, save_faq_data
 
 # Load the FAQ CSV file
 faq_df = pd.read_csv("./data/customer-service-qa.csv")

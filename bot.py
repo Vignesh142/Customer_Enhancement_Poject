@@ -1,8 +1,8 @@
 # bot.py
 import pandas as pd
 from sentence_transformers import SentenceTransformer
-from faiss_utils import generate_embeddings, create_faiss_index, load_faiss_index, load_faq_data, search_similar_faq
-from llm_utils import get_llm_response, save_query_and_category, classify_query, get_summarization_response, save_summary_log, get_sentiment_analysis
+from utils.faiss_utils import load_faiss_index, load_faq_data, search_similar_faq
+from utils.llm_utils import get_llm_response, save_query_and_category, classify_query, get_summarization_response, save_summary_log, get_sentiment_analysis
 
 def answer_customer_query(query, faq_data_path="faq_data.csv", faq_index_path="faq_index.bin", api_key=None):
     """Handles the customer query: finds a similar FAQ and enhances the answer using the LLM."""
@@ -45,9 +45,12 @@ def classify_and_log_query(query, api_key, log_file_path="query_classification_l
 
     # Classify the query using the Groq API
     category = classify_query(query, categories, api_key)
-
-    # Save the query and its category to the CSV file
-    save_query_and_category(query, category, log_file_path)
+    # print(category)
+    try:
+        # Save the query and its category to the CSV file
+        save_query_and_category(query, category, log_file_path)
+    except Exception as e:
+        print(f"Error saving query and category: {e}")
 
     return category
 
@@ -55,10 +58,12 @@ def summarize_and_log_query(query, api_key, log_file_path="query_summary_log.csv
     """Summarizes the query, logs it, and returns the summary."""
     # Summarize the query using the Groq API
     summary = get_summarization_response(query, api_key)
-
-    # Log the query and its summary to the CSV file
-    save_summary_log(query, summary, log_file_path)
-
+    # print(summary)
+    try:
+        # Log the query and its summary to the CSV file
+        save_summary_log(query, summary, log_file_path)
+    except Exception as e:
+        print(f"Error saving query and summary: {e}")
     return summary
 
 def sentiment_analysis(text, api_key):
